@@ -4,7 +4,11 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 const gallery = document.querySelector('.gallery');
 const loader = document.querySelector('.loader');
 
-const instance = new SimpleLightbox('.gallery a');
+const instance = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+  captionPosition: 'bottom',
+});
 
 export function createGallery(images) {
   const markup = images
@@ -28,10 +32,10 @@ export function createGallery(images) {
     </a>
 
     <div class="info">
-      <p>Likes ${likes}</p>
-      <p>Views ${views}</p>
-      <p>Comments ${comments}</p>
-      <p>Downloads ${downloads}</p>
+      <p>Likes <span>${likes}</span></p>
+      <p>Views <span>${views}</span></p>
+      <p>Comments <span>${comments}</span></p>
+      <p>Downloads <span>${downloads}</span></p>
     </div>
   </li>`;
     })
